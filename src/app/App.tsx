@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ExperimentModal, VIZ_SUPPORTED_IDS } from "./components/ExperimentVisualizer";
 import { AIAssistant } from "./components/AIAssistant";
 import {
@@ -16,6 +16,8 @@ import {
   Tag,
   GraduationCap,
   BarChart3,
+  Camera,
+  ScanText,
 } from "lucide-react";
 
 // No kit components in @figma/astraui-kit or _1130NewDesignSystem per components.md — all UI is hand-rolled
@@ -339,6 +341,8 @@ function AddQuestionModal({
   onClose: () => void;
   onAdd: (q: Question) => void;
 }) {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const streamRef = useRef<MediaStream | null>(null);
   const [form, setForm] = useState({
     subject: "math" as Subject,
     topic: "",
@@ -349,6 +353,106 @@ function AddQuestionModal({
     difficulty: 3 as 1 | 2 | 3 | 4 | 5,
     tags: "",
   });
+  const [cameraOpen, setCameraOpen] = useState(false);
+  const [capturedImage, setCapturedImage] = useState("");
+  const [cameraError, setCameraError] = useState("");
+  const [ocrError, setOcrError] = useState("");
+  const [isRecognizing, setIsRecognizing] = useState(false);
+
+  const stopCamera = () => {
+    streamRef.current?.getTracks().forEach((track) => track.stop());
+    streamRef.current = null;
+    if (videoRef.current) {
+      videoRef.current.srcObject = null;
+    }
+    setCameraOpen(false);
+  };
+
+  const safeClose = () => {
+    stopCamera();
+    onClose();
+  };
+
+  const inferTopic = (recognizedText: string) => {
+    const firstLine = recognizedText
+      .split("\n")
+      .map((line) => line.trim())
+      .find(Boolean);
+    if (!firstLine) return "";
+    return firstLine.slice(0, 20);
+  };
+
+  const runOcrAndApply = async (imageDataUrl: string) => {
+    setIsRecognizing(true);
+    setOcrError("");
+    try {
+      const { createWorker } = await import("tesseract.js");
+      const worker = await createWorker("chi_sim+eng");
+      const result = await worker.recognize(imageDataUrl);
+      await worker.terminate();
+
+      const raw = (result?.data?.text ?? "").replace(/\r/g, "").trim();
+      if (!raw) {
+        setOcrError("没有识别到文字，请换个角度重试");
+        return;
+      }
+
+      const splitMarker =
+        raw.search(/(正确答案|参考答案|答案[:：]|解析[:：]|解[:：])/) ?? -1;
+      const questionText =
+        splitMarker > 0 ? raw.slice(0, splitMarker).trim() : raw;
+      const answerText = splitMarker > 0 ? raw.slice(splitMarker).trim() : "";
+
+      setForm((prev) => ({
+        ...prev,
+        topic: prev.topic || inferTopic(questionText),
+        question: prev.question || questionText,
+        correctAnswer: prev.correctAnswer || answerText,
+      }));
+    } catch {
+      setOcrError("文字识别失败，请检查网络后重试");
+    } finally {
+      setIsRecognizing(false);
+    }
+  };
+
+  const startCamera = async () => {
+    setCameraError("");
+    setOcrError("");
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "environment" },
+      });
+      streamRef.current = stream;
+      setCameraOpen(true);
+      setCapturedImage("");
+      setTimeout(() => {
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+          videoRef.current.play().catch(() => {});
+        }
+      }, 0);
+    } catch {
+      setCameraError("无法打开摄像头，请允许浏览器摄像头权限");
+    }
+  };
+
+  const captureAndRecognize = async () => {
+    if (!videoRef.current) return;
+    const video = videoRef.current;
+    const width = video.videoWidth || 1280;
+    const height = video.videoHeight || 720;
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    ctx.drawImage(video, 0, 0, width, height);
+    const imageData = canvas.toDataURL("image/jpeg", 0.92);
+    setCapturedImage(imageData);
+    stopCamera();
+    await runOcrAndApply(imageData);
+  };
 
   const handleSubmit = () => {
     if (!form.topic || !form.question) return;
@@ -370,7 +474,7 @@ function AddQuestionModal({
         .map((t) => t.trim())
         .filter(Boolean),
     });
-    onClose();
+    safeClose();
   };
 
   const inputStyle = {
@@ -389,7 +493,7 @@ function AddQuestionModal({
     <div
       className="fixed inset-0 z-50 flex items-center justify-center"
       style={{ backgroundColor: "var(--color\\/mask\\/color-mask-default)" }}
-      onClick={(e) => e.target === e.currentTarget && onClose()}
+      onClick={(e) => e.target === e.currentTarget && safeClose()}
     >
       <div
         className="relative flex flex-col"
@@ -422,7 +526,7 @@ function AddQuestionModal({
           </span>
           {/* using raw <button>: no kit IconButton/CloseButton component */}
           <button
-            onClick={onClose}
+            onClick={safeClose}
             className="flex items-center justify-center rounded-lg"
             style={{
               width: 32,
@@ -439,6 +543,133 @@ function AddQuestionModal({
 
         {/* Modal body */}
         <div className="flex flex-col gap-4 overflow-y-auto px-6 py-5">
+          {/* Camera OCR */}
+          <div
+            className="flex flex-col gap-2 rounded-xl p-3"
+            style={{
+              backgroundColor:
+                "var(--color\\/bg\\/brand\\/color-bg-brand-subtlest)",
+              border: "1px solid var(--color\\/border\\/color-border-brand)",
+            }}
+          >
+            <span
+              className="title-small"
+              style={{ color: "var(--color\\/text\\/color-text-brand-default)" }}
+            >
+              拍照识别错题
+            </span>
+            <span
+              className="body-mini-s"
+              style={{ color: "var(--color\\/text\\/color-text-secondary)" }}
+            >
+              点击拍照后自动识别文字，并填充到题目与答案栏
+            </span>
+
+            {!cameraOpen && (
+              <button
+                onClick={startCamera}
+                className="body-small flex items-center justify-center gap-1.5 rounded-lg"
+                style={{
+                  border: "none",
+                  backgroundColor: "var(--brand\\/--brand-color)",
+                  color: "var(--color\\/text\\/color-text-anti)",
+                  cursor: "pointer",
+                  padding: "8px 12px",
+                }}
+              >
+                <Camera size={14} />
+                打开摄像头
+              </button>
+            )}
+
+            {cameraOpen && (
+              <div className="flex flex-col gap-2">
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  playsInline
+                  muted
+                  style={{
+                    width: "100%",
+                    borderRadius: 8,
+                    border: "1px solid var(--color\\/border\\/color-border-brand)",
+                    maxHeight: 240,
+                    objectFit: "cover",
+                  }}
+                />
+                <div className="flex gap-2">
+                  <button
+                    onClick={captureAndRecognize}
+                    className="body-small flex items-center justify-center gap-1.5 rounded-lg"
+                    style={{
+                      border: "none",
+                      backgroundColor: "var(--brand\\/--brand-color)",
+                      color: "var(--color\\/text\\/color-text-anti)",
+                      cursor: "pointer",
+                      padding: "8px 12px",
+                      flex: 1,
+                    }}
+                  >
+                    <ScanText size={14} />
+                    拍照并识别
+                  </button>
+                  <button
+                    onClick={stopCamera}
+                    className="body-small rounded-lg"
+                    style={{
+                      border:
+                        "1px solid var(--color\\/border\\/color-border-default)",
+                      backgroundColor:
+                        "var(--color\\/bg\\/container\\/color-bg-container-default)",
+                      color: "var(--color\\/text\\/color-text-secondary)",
+                      cursor: "pointer",
+                      padding: "8px 12px",
+                    }}
+                  >
+                    取消
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {capturedImage && !cameraOpen && (
+              <img
+                src={capturedImage}
+                alt="拍照识别预览"
+                className="w-full rounded-lg object-cover"
+                style={{
+                  maxHeight: 180,
+                  border: "1px solid var(--color\\/border\\/color-border-default)",
+                }}
+              />
+            )}
+
+            {isRecognizing && (
+              <span
+                className="body-mini-s"
+                style={{ color: "var(--color\\/text\\/color-text-brand-default)" }}
+              >
+                正在识别文字，请稍候...
+              </span>
+            )}
+            {cameraError && (
+              <span
+                className="body-mini-s"
+                style={{ color: "var(--color\\/text\\/color-text-error-default)" }}
+              >
+                {cameraError}
+              </span>
+            )}
+            {ocrError && (
+              <span
+                className="body-mini-s"
+                style={{ color: "var(--color\\/text\\/color-text-error-default)" }}
+              >
+                {ocrError}
+              </span>
+            )}
+          </div>
+
           {/* Subject + Difficulty row */}
           <div className="flex gap-4">
             <div className="flex flex-col gap-1.5" style={{ flex: 1 }}>
@@ -649,7 +880,7 @@ function AddQuestionModal({
         >
           {/* using raw <button>: no kit Button component in component catalog */}
           <button
-            onClick={onClose}
+            onClick={safeClose}
             className="body-medium"
             style={{
               padding: "8px 20px",
