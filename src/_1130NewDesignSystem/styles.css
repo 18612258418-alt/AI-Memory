@@ -1,0 +1,571 @@
+:root {
+  ----comp-size\/xxxs: 12;
+  ----comp-size\/xxs: 16;
+  ----comp-size\/xs: 20;
+  ----comp-size\/s: 24;
+  ----comp-size\/m: 28;
+  ----comp-size\/l: 32;
+  ----comp-size\/xl: 36;
+  ----comp-size\/xxl: 40;
+  ----comp-size\/xxxl: 48;
+  ----radius-xxxxs: 2;
+  ----comp-size\/xxxxl: 64;
+  ----radius-xxs: 3;
+  ----radius-xs: 6;
+  ----comp-size\/xxxxxl: 72;
+  ----radius-s: 9;
+  ----radius-m: 12;
+  ----comp-size\/xxxxxxl: 96;
+  ----radius-l: 15;
+  ----radius-xl: 18;
+  ----radius-xxl: 24;
+  ----comp-paddinglr\/xxs: 2;
+  ----radius-xxxl: 32;
+  ----comp-paddinglr\/xs: 4;
+  ----comp-paddinglr\/s: 6;
+  ----comp-paddinglr\/m: 8;
+  ----comp-paddinglr\/l: 12;
+  ----comp-paddinglr\/xl: 16;
+  ----comp-paddinglr\/2xl: 20;
+  ----comp-paddinglr\/3xl: 24;
+  ----comp-paddinglr\/4xl: 28;
+  ----comp-paddinglr\/5xl: 32;
+  ----comp-paddinglr\/6xl: 40;
+  ----comp-paddinglr\/7xl: 44;
+  ----comp-paddinglr\/8xl: 52;
+  ----comp-paddinglr\/9xl: 72;
+  ----comp-paddinglr\/10xl: 100;
+  ----comp-paddingtb\/xxxs: 2;
+  ----comp-paddingtb\/xxs: 3;
+  ----comp-paddingtb\/xs: 4;
+  ----comp-paddingtb\/s: 5;
+  ----comp-paddingtb\/m: 6;
+  ----comp-paddingtb\/l: 7;
+  ----comp-paddingtb\/xl: 8;
+  ----comp-paddingtb\/2xl: 12;
+  ----comp-paddingtb\/3xl: 16;
+  ----comp-paddingtb\/4xl: 20;
+  ----comp-paddingtb\/5xl: 24;
+  ----comp-paddingtb\/6xl: 32;
+  ----comp-margin\/xxs: 2;
+  ----comp-spacing\/xxs: 2;
+  ----comp-spacing\/xs: 4;
+  ----comp-spacing\/s: 6;
+  ----comp-spacing\/m: 8;
+  ----comp-spacing\/l: 12;
+  ----comp-spacing\/xl: 16;
+  ----comp-spacing\/2xl: 20;
+  ----comp-spacing\/3xl: 24;
+  ----comp-spacing\/4xl: 32;
+  ----comp-margin\/xs: 4;
+  ----comp-margin\/s: 8;
+  ----comp-margin\/m: 12;
+  ----comp-margin\/l: 16;
+  ----comp-margin\/xl: 20;
+  ----comp-margin\/2xl: 24;
+  ----comp-margin\/3xl: 32;
+  ----comp-margin\/4xl: 48;
+  ----font-size\/link-small: 13;
+  ----font-size\/link-large: 16;
+  ----font-size\/link-medium: 14;
+  ----font-size\/mark-small: 12;
+  ----font-size\/mark-medium: 14;
+  ----font-size\/body-mini: 11;
+  ----font-size\/body-mini-s: 12;
+  ----font-size\/body-small: 13;
+  ----font-size\/body-medium: 14;
+  ----font-size\/body-large: 16;
+  ----font-size\/title-xs: 11;
+  ----font-size\/title-mini: 12;
+  ----font-size\/title-mini-s: 13;
+  ----font-size\/title-small: 14;
+  ----font-size\/title-medium: 16;
+  ----font-size\/title-large: 18;
+  ----font-size\/title-extralarge: 20;
+  ----font-size\/headline-mini: 20;
+  ----font-size\/headline-small: 24;
+  ----font-size\/headline-medium: 28;
+  ----font-size\/headline-large: 36;
+  ----font-size\/display-medium: 48;
+  ----font-size\/display-large: 64;
+  --brand\/--brand-color: #4D5CFF;
+  --color\/text\/color-text-primary: #020418;
+  --color\/text\/color-text-secondary: #41464F;
+  --color\/text\/color-text-placeholder: #7B8291;
+  --color\/text\/color-text-disabled: #C1C8D6;
+  --color\/text\/color-text-anti: #FFF;
+  --color\/text\/color-text-brand-disabled: #AABAFF;
+  --color\/text\/color-text-brand-default: #4D5CFF;
+  --color\/text\/color-text-brand-bolder: #191BA6;
+  --color\/text\/color-text-success-disabled: #7BE188;
+  --color\/text\/color-text-success-default: #00B42A;
+  --color\/text\/color-text-success-bolder: #008026;
+  --color\/text\/color-text-warning-disabled: #FFD590;
+  --color\/text\/color-text-warning-default: #FF8A0D;
+  --color\/text\/color-text-warning-bolder: #A32E10;
+  --color\/text\/color-text-error-disabled: #FAADA1;
+  --color\/text\/color-text-error-default: #F2423C;
+  --color\/text\/color-text-error-bolder: #9F1418;
+  --color\/text\/color-text-skyblue-default: #26B7FF;
+  --color\/text\/color-text-skyblue-bolder: #0C68A6;
+  --color\/text\/color-text-info-default: #37F;
+  --color\/text\/color-text-blue-bolder: #1139A6;
+  --color\/text\/color-text-yellow-default: #F5BA18;
+  --color\/text\/color-text-yellow-bolder: #A16E08;
+  --color\/text\/color-text-redpurple-default: #B285FF;
+  --color\/text\/color-text-redpurple-bolder: #502BA6;
+  --color\/text\/color-text-wh1: #FFFFFFE5;
+  --color\/text\/color-text-wh2: #FFFFFF8C;
+  --color\/text\/color-text-wh3: #FFFFFF59;
+  --color\/text\/wh4: #FFFFFF38;
+  --color\/icon\/color-icon-primary: #020418;
+  --color\/icon\/color-icon-secondary: #41464F;
+  --color\/icon\/color-icon-placeholder: #7B8291;
+  --color\/icon\/color-icon-disabled: #C1C8D6;
+  --color\/icon\/color-icon-anti: #FFF;
+  --color\/icon\/color-icon-brand-default: #4D5CFF;
+  --color\/icon\/color-icon-brand-disabled: #AABAFF;
+  --color\/icon\/color-icon-success-default: #00B42A;
+  --color\/icon\/color-icon-success-disabled: #7BE188;
+  --color\/icon\/color-icon-warning-default: #FF8A0D;
+  --color\/icon\/color-icon-warning-disabled: #FFD590;
+  --color\/icon\/color-icon-error-default: #F2423C;
+  --color\/icon\/color-icon-error-disabled: #FAADA1;
+  --color\/icon\/color-icon-skyblue-default: #26B7FF;
+  --color\/icon\/color-icon-skyblue-disabled: #9AE8FF;
+  --color\/icon\/color-icon-info-default: #37F;
+  --color\/icon\/color-icon-blue-disabled: #A0C9FF;
+  --color\/icon\/color-icon-yellow-default: #F5BA18;
+  --color\/icon\/color-icon-redpurple-default: #B285FF;
+  --color\/icon\/color-icon-wh1: #FFFFFFE5;
+  --color\/icon\/color-icon-wh2: #FFFFFF8C;
+  --color\/icon\/color-icon-wh3: #FFFFFF59;
+  --color\/icon\/wh4: #FFFFFF38;
+  --color\/bg\/page\/color-bg-page-level-1: #FFF;
+  --color\/bg\/container\/color-bg-container-default: #FFF;
+  --color\/bg\/container\/color-bg-container-hover: #F7F8FA;
+  --color\/bg\/container\/color-bg-container-active: #EAEDF2;
+  --color\/bg\/container\/color-bg-container-select: #FFF;
+  --color\/bg\/container\/color-bg-container-secondary: #FFF;
+  --color\/bg\/container\/color-bg-container-secondary-hover: #F2F4F7;
+  --color\/bg\/container\/color-bg-container-secondary-active: #E1E4EB;
+  --color\/bg\/component\/color-bg-conponent-default: #FFF;  /* 灰色标签的背景色 */
+  --color\/bg\/component-dark\/color-bg-conponent-dark-level-13: #161617;
+  --color\/bg\/component-dark\/color-bg-conponent-dark-level-11: #2C2C2E;
+  --color\/bg\/component-dark\/color-bg-conponent-dark-level-10: #3F4145;
+  --color\/bg\/component-dark\/color-bg-conponent-dark-level-9: #51545C;
+  --color\/bg\/component\/color-bg-conponent-hover: #F2F4F7;
+  --color\/bg\/component\/color-bg-conponent-active: #EAEDF2;
+  --color\/bg\/component\/color-bg-conponent-secondary-default: #EAEDF2;  /* 灰色标签的背景色 */
+  --color\/bg\/component\/color-bg-conponent-secondary-hover: #E1E4EB;
+  --color\/bg\/component\/color-bg-conponent-secondary-active: #CCD0D9;
+  --color\/bg\/component\/color-bg-conponent-disabled: #F2F4F7;
+  --color\/bg\/component\/color-bg-conponent-lighter: #F7F8FA;
+  --color\/bg\/brand\/color-bg-brand-default: var(--brand\/--brand-color);
+  --color\/bg\/warning\/color-bg-warning-default: #FF8A0D;
+  --color\/bg\/warning\/color-bg-warning-hover: #FFA639;
+  --color\/bg\/warning\/color-bg-warning-active: #D26A08;
+  --color\/bg\/warning\/color-bg-warning-disabled: #FFD590;
+  --color\/bg\/warning\/color-bg-warning-subtlest: #FFF8E8;
+  --color\/bg\/warning\/color-bg-warning-subtlest-hover: #FFE8BC;
+  --color\/bg\/warning\/color-bg-warning-subtler: #FFE8BC;
+  --color\/bg\/warning\/color-bg-warning-subtler-hover: #FFD590;
+  --color\/bg\/warning\/color-bg-warning-subtle: #FFD590;
+  --color\/bg\/warning\/color-bg-warning-subtle-hover: #FFBF65;
+  --color\/bg\/error\/color-bg-error-default: #F2423C;
+  --color\/bg\/operation\/color-bg-operation-default: #37F;
+  --color\/bg\/success\/color-bg-success-default: #00B42A;
+  --color\/bg\/operation\/color-bg-operation-hover: #5795FF;
+  --color\/bg\/operation\/color-bg-operation-active: #2055D2;
+  --color\/bg\/operation\/color-bg-operation-disabled: #A0C9FF;
+  --color\/bg\/operation\/color-bg-operation-subtlest: #E8F4FF;
+  --color\/bg\/operation\/color-bg-operation-subtlest-hover: #C4DFFF;
+  --color\/bg\/operation\/color-bg-operation-subtler: #C4DFFF;
+  --color\/bg\/operation\/color-bg-operation-subtler-hover: #A0C9FF;
+  --color\/bg\/operation\/color-bg-operation-subtle: #A0C9FF;
+  --color\/bg\/operation\/color-bg-operation-subtle-hover: #7BB0FF;
+  --color\/bg\/success\/color-bg-success-hover: #23C343;
+  --color\/bg\/success\/color-bg-success-active: #009A29;
+  --color\/bg\/success\/color-bg-success-disabled: #7BE188;
+  --color\/bg\/success\/color-bg-success-subtlest: #E8FFEA;
+  --color\/bg\/success\/color-bg-success-subtlest-hover: #AFF0B5;
+  --color\/bg\/success\/color-bg-success-subtler: #AFF0B5;
+  --color\/bg\/success\/color-bg-success-subtler-hover: #7BE188;
+  --color\/bg\/success\/color-bg-success-subtle: #7BE188;
+  --color\/bg\/success\/color-bg-success-subtle-hover: #7BE188;
+  --color\/bg\/redpurple\/color-bg-redpurple-subtlest: #F4E8FF;
+  --color\/bg\/redpurple\/color-bg-redpurple-subtlest-hover: #EAD4FF;
+  --color\/bg\/redpurple\/color-bg-redpurple-subtler: #EAD4FF;
+  --color\/bg\/redpurple\/color-bg-redpurple-subtler-hover: #DEC0FF;
+  --color\/bg\/redpurple\/color-bg-redpurple-subtle: #DEC0FF;
+  --color\/bg\/redpurple\/color-bg-redpurple-subtle-hover: #D0ADFF;
+  --color\/bg\/error\/color-bg-error-hover: #F5675D;
+  --color\/bg\/error\/color-bg-error-active: #C92525;
+  --color\/bg\/error\/color-bg-error-disabled: #FAADA1;
+  --color\/bg\/error\/color-bg-error-subtlest: #FFEDE8;
+  --color\/bg\/error\/color-bg-error-subtler: #FCCEC4;
+  --color\/bg\/error\/color-bg-error-subtler-hover: #FAADA1;
+  --color\/bg\/error\/color-bg-error-subtle: #FAADA1;
+  --color\/bg\/error\/color-bg-error-subtle-hover: #F78B7F;
+  --color\/bg\/skyblue\/color-bg-skyblue-subtlest: #E8FBFF;
+  --color\/bg\/lime\/color-bg-lime-subtlest: #F7FFE8;
+  --color\/bg\/yellow\/color-bg-yellow-subtlest: #FFFDE8;
+  --color\/bg\/yellow\/color-bg-yellow-subtlest-hover: #FDF4BD;
+  --color\/bg\/yellow\/color-bg-yellow-subtler: #FDF4BD;
+  --color\/bg\/yellow\/color-bg-yellow-subtler-hover: #FBEA93;
+  --color\/bg\/yellow\/color-bg-yellow-subtle: #FBEA93;
+  --color\/bg\/yellow\/color-bg-yellow-subtle-hover: #F9DC69;
+  --color\/bg\/lime\/color-bg-lime-subtlest-hover: #DEF5B7;
+  --color\/bg\/lime\/color-bg-lime-subtler: #DEF5B7;
+  --color\/bg\/lime\/color-bg-lime-subtler-hover: #C4EB89;
+  --color\/bg\/lime\/color-bg-lime-subtle: #C4EB89;
+  --color\/bg\/lime\/color-bg-lime-subtle-hover: #A8E05F;
+  --color\/bg\/skyblue\/color-bg-skyblue-subtlest-hover: #C1F3FF;
+  --color\/bg\/skyblue\/color-bg-skyblue-subtler: #C1F3FF;
+  --color\/bg\/skyblue\/color-bg-skyblue-subtler-hover: #9AE8FF;
+  --color\/bg\/skyblue\/color-bg-skyblue-subtle: #9AE8FF;
+  --color\/bg\/skyblue\/color-bg-skyblue-subtle-hover: #74DAFF;
+  --color\/bg\/vermillon\/color-bg-vermillon-subtlest: #FFF2E8;
+  --color\/bg\/vermillon\/color-bg-vermillon-subtlest-hover: #FEDBC3;
+  --color\/bg\/vermillon\/color-bg-vermillon-subtler: #FEDBC3;
+  --color\/bg\/vermillon\/color-bg-vermillon-subtler-hover: #FDC19E;
+  --color\/bg\/vermillon\/color-bg-vermillon-subtle: #FDC19E;
+  --color\/bg\/vermillon\/subtle-hover: #FCA57A;
+  --color\/bg\/brand\/color-bg-brand-hover: #6C7DFF;
+  --color\/bg\/brand\/color-bg-brand-active: #3038D2;
+  --color\/bg\/brand\/color-bg-brand-disabled: #AABAFF;
+  --color\/bg\/brand\/color-bg-brand-subtlest: #E8EEFF;
+  --color\/bg\/brand\/color-bg-brand-subtlest-hover: #C9D5FF;
+  --color\/bg\/brand\/color-bg-brand-subtler: #C9D5FF;
+  --color\/bg\/brand\/color-bg-brand-subtler-hover: #AABAFF;
+  --color\/bg\/brand\/color-bg-brand-subtle: #AABAFF;
+  --color\/bg\/brand\/color-bg-brand-subtle-hover: #8B9CFF;
+  --color\/bg\/page\/color-bg-page-level-2: #F2F4F7;
+  --color\/link\/color-link-default: #37F;
+  --color\/link\/color-link-pressed: #1139A6;
+  --color\/link\/color-link-visited-default: #7D52D2;
+  --color\/link\/visited-pressed: #502BA6;
+  --color\/border\/color-border-white: #FFF;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/border\/color-border-default: #EAEDF2;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/line\/color-line-default: #EAEDF2;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/brand: #4D5CFF;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/mask\/color-mask-default: #0009;
+  --color\/scrollbar\/color-scrollbar-default: #CCD0D9;
+  --color\/scrollbar\/-scrollbar-hover: #808591;
+  --color\/mask\/-mask-disabled: #FFF9;
+  --color\/charts\/brand-subtle: #AABAFF;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/green: #00B42A;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/green-subtle: #7BE188;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/orange: #FF8A0D;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/orange-subtle: #FFD590;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/redpurple: #B285FF;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/redpurple-subtle: #DEC0FF;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/magenta: #F23DB6;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/magenta-subtle: #FAA2D4;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/red: #F2423C;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/red-subtle: #FAADA1;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/vermillon: #FA6732;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/vermillon-subtle: #FDC19E;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/blue: #37F;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/blue-subtle: #A0C9FF;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/skyblue: #26B7FF;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/skyblue-subtle: #9AE8FF;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/lime: #70CC14;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/lime-subtle: #C4EB89;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/yellow: #F5BA18;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/charts\/yellow-subtle: #FBEA93;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/line\/bolder: #E1E4EB;  /* 默认边框颜色，用于大多数 UI 元素的边框，如卡片等。
+ */
+  --color\/border\/color-border-input: #E1E4EB;
+  --color\/border\/color-border-bolder: #CCD0D9;  /* 用于表单控件的默认边框，如输入框、单选框、复选框等 */
+  --color\/border\/color-border-focus: #37F;  /* 用于聚焦状态的边框，如输入框聚焦、按钮聚焦、菜单项高亮等。
+ */
+  --color\/border\/color-border-brand: var(--brand\/--brand-color);  /* 用于品牌相关的边框，如主按钮、品牌卡片等。
+ */
+  --color\/border\/color-border-brand-disabled: #AABAFF;  /* 用于提示类信息，如帮助文本、进行中状态等。
+ */
+  --color\/border\/color-border-brand-subtler: #C9D5FF;  /* 用于提示类信息，如帮助文本、进行中状态等。
+ */
+  --color\/border\/color-border-error: #C92525;  /* 表示错误、危险状态，如无效输入框边框。
+ */
+  --color\/border\/color-border-error-disabled: #FAADA1;  /* 用于提示类信息，如帮助文本、进行中状态等。
+ */
+  --color\/border\/color-border-error-subtler: #FCCEC4;  /* 用于提示类信息，如帮助文本、进行中状态等。
+ */
+  --color\/border\/color-border-success: #23C343;  /* 表示成功状态。
+ */
+  --color\/border\/color-border-success-disabled: #7BE188;  /* 用于提示类信息，如帮助文本、进行中状态等。
+ */
+  --color\/border\/color-border-success-subtler: #AFF0B5;  /* 用于提示类信息，如帮助文本、进行中状态等。
+ */
+  --color\/border\/color-border-warning: #FF8A0D;  /* 表示警告状态。
+ */
+  --color\/border\/color-border-warning-disabled: #FFD590;  /* 用于提示类信息，如帮助文本、进行中状态等。
+ */
+  --color\/border\/color-border-warning-subtler: #FFE8BC;  /* 用于提示类信息，如帮助文本、进行中状态等。
+ */
+  --color\/border\/color-border-discovery: #B285FF;  /* 用于“发现”类信息，如新功能、推荐内容等。
+ */
+  --color\/border\/color-border-discovery-disabled: #DEC0FF;  /* 用于提示类信息，如帮助文本、进行中状态等。
+ */
+  --color\/border\/color-border-discovery-subtler: #EAD4FF;  /* 用于提示类信息，如帮助文本、进行中状态等。
+ */
+  --color\/border\/color-border-info: #37F;  /* 用于提示类信息，如帮助文本、进行中状态等。
+ */
+  --color\/border\/color-border-info-disabled: #A0C9FF;  /* 用于提示类信息，如帮助文本、进行中状态等。
+ */
+  --color\/border\/info-subtler: #C4DFFF;  /* 用于提示类信息，如帮助文本、进行中状态等。
+ */
+  --light-layer: true;
+  --dark-layer: false;
+}
+
+/* About display-large: @font-size-displayLarge */
+.display-large {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 72px;
+  letter-spacing: 0px;
+}
+
+/* About display-medium: @font-size-displayMedium */
+.display-medium {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 56px;
+  letter-spacing: 0px;
+}
+
+/* About headline-large: @font-size-headlineLarge */
+.headline-large {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: 0px;
+}
+
+/* About title-extralarge: @font-size-titleExtraLarge */
+.title-extralarge {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0px;
+}
+
+/* About title-large: @font-size-titleLarge */
+.title-large {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0px;
+}
+
+/* About title-medium: @font-size-titleMedium */
+.title-medium {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+
+/* About title-small: @font-size-titleSmall */
+.title-small {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 0px;
+}
+
+/* About body-large: @font-size-bodyLarge */
+.body-large {
+  font-family: "PingFang SC";
+  font-style: "Regular";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+
+/* About body-medium: @font-size-bodyMedium */
+.body-medium {
+  font-family: "PingFang SC";
+  font-style: "Regular";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+}
+
+.body-small {
+  font-family: "PingFang SC";
+  font-style: "Regular";
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+}
+
+/* About body-mini-s: @font-size-bodySmall */
+.body-mini-s {
+  font-family: "PingFang SC";
+  font-style: "Regular";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0px;
+}
+
+/* About mark-medium: @font-size-markMedium */
+.mark-medium {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 0px;
+}
+
+/* About mark-small: @font-size-markSmall */
+.mark-small {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0px;
+}
+
+/* About link-large: @font-size-linkLarge */
+.link-large {
+  font-family: "PingFang SC";
+  font-style: "Regular";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+
+/* About link-medium: @font-size-linkMedium */
+.link-medium {
+  font-family: "PingFang SC";
+  font-style: "Regular";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+}
+
+/* About headline-medium: @font-size-headlineMedium */
+.headline-medium {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0px;
+}
+
+/* About headline-small: @font-size-headlineSmall */
+.headline-small {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0px;
+}
+
+/* About link-small: @font-size-linkSmall */
+.link-small {
+  font-family: "PingFang SC";
+  font-style: "Regular";
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+}
+
+.title-mini-s {
+  font-family: "PingFang SC";
+  font-style: "Medium";
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0px;
+}
+
+.title-mini {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0px;
+}
+
+.headline-mini {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0px;
+}
+
+.body-mini {
+  font-family: "PingFang SC";
+  font-style: "Regular";
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+}
+
+.title-xs {
+  font-family: "PingFang SC";
+  font-style: "Semibold";
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0px;
+}
+
